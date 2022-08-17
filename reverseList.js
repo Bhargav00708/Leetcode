@@ -7,10 +7,14 @@ let obj1 = new ListNode(20);
 obj1.next = new ListNode(30);
 obj1.next.next = new ListNode(40);
 
-function reverse(val)
-{
-    let reverseNode = new ListNode();
-    let realReverseNode = reverseNode;
-}
+var reverseList = function (head) {
+    let reverseList = new ListNode(head.val);
+    while (head.next != null) {
+        head = head.next;
+        let newNode = new ListNode(head.val,reverseList);
+        reverseList = newNode;
+    }
+    return reverseList;
+};
 
-console.log(reverse(obj1));
+console.log(reverseList(obj1)); 

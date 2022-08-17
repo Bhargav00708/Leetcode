@@ -123,7 +123,6 @@ class SLLNode {
       let node = this.head;
       this.head = this.tail;
       this.tail = node;
-      
       let prev = null;
       let next;
       for (let i = 0; i < this.length; i++) {
