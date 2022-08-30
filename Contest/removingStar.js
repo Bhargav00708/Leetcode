@@ -1,20 +1,28 @@
-var answerQueries = function (nums, queries) {
-    nums.sort();
-    let data = [];
-    for (let i = 0; i < queries.length; i++) {
-        let count = 0;
-        let sum = 0;
-        for (let j = 0; j < nums.length; j++) {
-            sum += nums[j];
-            ++count;
-            if (sum > queries[i]) {
-                --count;
-                break;
-            }
-        }
-        data.push(count);
-    }
-    return data;
+// var removeStars = function (s) {
+//     let stackOp = [];
+//     for (let i = 0; i < s.length; i++) {
+//         if (s[i] == `*`) {
+//             stackOp.pop();
+//         }
+//         else {
+//             stackOp.push(s[i]);
+//         }
+//     }
+//     return stackOp.join(``);
+// };
+
+// console.log(removeStars(`leet**cod*e`));
+
+
+var removeStars = function(s) {
+    ss = "";
+for(let i = 0; i < s.length; i++){
+    if(s[i] !== "*")
+        ss += s[i];
+    if(s[i+1] === "*")
+         ss = ss.slice(0,ss.length-1);        
+}
+    return ss;
 };
 
-console.log(answerQueries([736411,184882,914641,37925,214915], [331244,273144,118983,118252,305688,718089,665450]));
+console.log(removeStars(`leet**cod*e`));
