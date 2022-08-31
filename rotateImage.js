@@ -6,10 +6,16 @@ var rotate = function (matrix) {
             matrix[j][i] = temp;
         }
     }
-    while () {
-        let temp = matrix[i][matrix[i].length - 1];
-        matrix[i][matrix[i].length - 1] = matrix[i][0];
-        matrix[i][0] = temp;
+    for (let i = 0; i < matrix.length; i++) {
+        let firstPointer  = 0;
+        let secondPointer = matrix[i].length - 1;
+        for (let j = 0; j < parseInt(matrix[i].length/2); j++) {
+            let temp = matrix[i][secondPointer];
+            matrix[i][secondPointer] = matrix[i][firstPointer];
+            matrix[i][firstPointer] = temp;
+            ++firstPointer;
+            --secondPointer;
+        }
     }
     return matrix;
 };
