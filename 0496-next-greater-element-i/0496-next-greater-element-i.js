@@ -4,20 +4,36 @@
  * @return {number[]}
  */
 var nextGreaterElement = function (nums1, nums2) {
-    let myArr = [];
-    for (let i = 0; i < nums1.length; i++) {
-        let myIndex = nums2.indexOf(nums1[i]);
-        let flag = true;
-        for (let j = myIndex + 1; j < nums2.length; j++) {
-            if (nums2[j] > nums1[i]) {
-                myArr.push(nums2[j]);
-                flag = false;
+    let stackArray = [];
+    let resultArray = [];
+    resultArray.push(-1);
+    stackArray.push(nums2[nums2.length - 1]);
+    for(let i = nums2.length - 2; 0 <= i; i--)
+    {
+        while(true)
+            {
+        if(stackArray.length == 0)
+            {
+                resultArray.push(-1);
+                stackArray.push(nums2[i]);
                 break;
             }
-        }
-        if (flag) {
-            myArr.push(-1);
-        }
+       else if(nums2[i] > stackArray[stackArray.length - 1])
+           {
+               stackArray.pop();
+           }
+        else
+            {
+               resultArray.push(stackArray[stackArray.length - 1]); 
+               stackArray.push(nums2[i]);
+               break;
+            }
+            }
     }
-    return myArr;
+    resultArray.reverse();
+    let finalResult = [];
+    for(let i = 0; i < nums1.length; i++){
+        finalResult.push(resultArray[nums2.indexOf(nums1[i])]);
+    }
+    return finalResult;
 };
