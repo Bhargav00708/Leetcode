@@ -35,9 +35,11 @@ var nextGreaterElements = function (nums) {
                 break;
             }
             else {
-                stackArray.pop();
+                stackArray.pop();  
             }
         }
     }
     return returnArray.reverse();
 };
+
+//demo
