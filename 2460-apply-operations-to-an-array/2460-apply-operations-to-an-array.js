@@ -10,7 +10,7 @@ var applyOperations = function(nums) {
         }
     }
     let zeroIndex = nums.indexOf(0);
-    if(zeroIndex == -1) return nums;
+    // if(zeroIndex == -1) return nums;
     for(let i = zeroIndex + 1; i < nums.length; i++){
         if(nums[i] != 0){
             nums[zeroIndex] = nums[i];
